@@ -1,0 +1,30 @@
+[
+  {
+    "id": "c36722e6-dd9c-4ca0-886d-9c4d9ecd035d",
+    "nickname": "aris",
+    "email": "aris@email.com",
+    "password": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM\u003d",
+    "joinDate": "2026-05-20",
+    "library": {
+      "purchases": [
+        {
+          "gameId": "33333333-3333-3333-3333-333333333333",
+          "purchaseDate": "2026-05-20",
+          "playTime": 0,
+          "progression": 0,
+          "isRefunded": true,
+          "pricePaid": 20.0
+        },
+        {
+          "gameId": "55555555-5555-5555-5555-555555555555",
+          "purchaseDate": "2026-05-20",
+          "playTime": 8,
+          "progression": 4,
+          "isRefunded": false,
+          "pricePaid": 48.0
+        }
+      ]
+    },
+    "wallet": 52.0
+  }
+]
