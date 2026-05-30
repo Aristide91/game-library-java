@@ -1,28 +1,33 @@
-# Pro Du Jeu - Plateforme de Distribution de Jeux Vidéos
+# 🎮 JavaF - Pro Du Jeu (Next Gen)
 
-Bienvenue sur **Pro Du Jeu**, une plateforme de gestion et d'achat de jeux vidéos (façon Steam ou Epic Games Store). Ce projet a été développé en Java et propose une interface graphique moderne (GUI) ainsi qu'une logique métier robuste.
+Une application desktop de gestion de bibliothèque de jeux inspirée de Steam, développée en **Java** avec une interface utilisateur moderne et personnalisée.
 
-##  Fonctionnalités Principales
+## ✨ Points forts du projet
 
-*   **Gestion des Utilisateurs :** Inscription, connexion sécurisée (hashage SHA-256), et gestion d'un porte-monnaie virtuel.
-*   **Catalogue de Jeux :** Un magasin proposant différents types de jeux (Solo, Multijoueur, à Abonnement).
-*   **Système d'Achat :** Achat de jeux avec gestion du solde, et possibilité d'utiliser des codes promotionnels (ex: `PRO20`).
-*   **Bibliothèque Personnelle :** Suivi du temps de jeu et de la progression (pour les jeux solo).
-*   **Remboursements :** Système automatisé vérifiant les conditions d'éligibilité (moins de 14 jours, moins de 2 heures jouées).
-*   **Export PDF :** Génération d'un récapitulatif de la bibliothèque au format PDF.
-*   **Recherche :** Barre de recherche en temps réel dans le catalogue.
+- **UI Moderne (Custom Swing)** : Développement d'une interface utilisateur élégante utilisant des composants Swing personnalisés (`ModernButton`, `ModernPanel`) avec gestion du survol, des arrondis et des thèmes sombres.
+- **Gestion de Catalogue** : Système complet d'achat de jeux, de gestion de bibliothèque et d'historique de transactions.
+- **Persistence des données** : Sauvegarde et chargement des données (utilisateurs, catalogue, bibliothèque) via un stockage **JSON**.
+- **Gestion du Portefeuille** : Système de monnaie virtuelle pour simuler l'achat de jeux.
+- **Architecture Propre** : Utilisation de Design Patterns (Singleton, Factory) et séparation nette entre le modèle, la vue (GUI) et les services.
+- **Export PDF** : Intégration de la génération de documents PDF pour les reçus ou rapports (via iText).
 
-##  Architecture
+## 🛠️ Stack Technique
 
-Le projet est divisé en plusieurs packages :
-*   `model` : Contient les objets métiers (User, Game, Library, etc.).
-*   `service` : Contient la logique d'orchestration (`PlatformManager`).
-*   `gui` : Contient l'interface graphique (`SteamLikeGui`).
-*   `util` : Utilitaires pour la sécurité, l'export (PDF), et la persistance (JSON).
+- **Langage** : Java 17+
+- **Interface Graphique** : Java Swing (Custom Components)
+- **Gestion de projet** : Maven
+- **Données** : JSON (GSON / Jackson)
+- **Bibliothèques tierces** : iText (pour l'export PDF)
 
-##  Persistance des Données
+## 🚀 Lancement
 
-Les données des utilisateurs (comptes, soldes, bibliothèques) sont sauvegardées localement au format JSON (`users.json`), garantissant qu'aucune progression n'est perdue entre deux sessions.
+1. **Prérequis** : Avoir un JDK 17+ installé.
+2. **Compilation** :
+   ```bash
+   mvn clean install
+   ```
+3. **Exécution** :
+   Lancer la classe principale `app.Main`.
 
 ---
-*Projet réalisé dans le cadre académique pour valider les concepts avancés de la Programmation Orientée Objet.*
+*Ce projet démontre une maîtrise avancée de Java Desktop et de la création d'interfaces graphiques ergonomiques.*
