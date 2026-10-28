@@ -1,0 +1,12 @@
+# Maven build output
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Runtime files created by the app
+application.log
+users.json
+*_bibliotheque.pdf

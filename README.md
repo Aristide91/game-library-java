@@ -1,33 +1,44 @@
-# 🎮 JavaF - Pro Du Jeu (Next Gen)
+# 🎮 Game Library (Java Swing)
 
-Une application desktop de gestion de bibliothèque de jeux inspirée de Steam, développée en **Java** avec une interface utilisateur moderne et personnalisée.
+🇫🇷 [Version française](README.fr.md)
 
-## ✨ Points forts du projet
+A desktop app that simulates a small game store and library, in the spirit of Steam. Built in **Java 17** with a custom **Swing** UI and a layered object-oriented design.
 
-- **UI Moderne (Custom Swing)** : Développement d'une interface utilisateur élégante utilisant des composants Swing personnalisés (`ModernButton`, `ModernPanel`) avec gestion du survol, des arrondis et des thèmes sombres.
-- **Gestion de Catalogue** : Système complet d'achat de jeux, de gestion de bibliothèque et d'historique de transactions.
-- **Persistence des données** : Sauvegarde et chargement des données (utilisateurs, catalogue, bibliothèque) via un stockage **JSON**.
-- **Gestion du Portefeuille** : Système de monnaie virtuelle pour simuler l'achat de jeux.
-- **Architecture Propre** : Utilisation de Design Patterns (Singleton, Factory) et séparation nette entre le modèle, la vue (GUI) et les services.
-- **Export PDF** : Intégration de la génération de documents PDF pour les reçus ou rapports (via iText).
+## Features
 
-## 🛠️ Stack Technique
+- **Accounts**: sign up and log in (passwords stored as SHA-256 hashes).
+- **Store and library**: browse the catalogue, top up a virtual wallet, buy games, view purchase history and request refunds (within 14 days and under 2 hours played).
+- **Game types**: solo, multiplayer and subscription games, modelled with inheritance (`Game` → `SoloGame`, `MultiplayerGame`, `SubscriptionGame`).
+- **Custom UI**: dark theme with hand-made Swing components (`ModernButton`, `ModernPanel`) with rounded corners and hover effects.
+- **Persistence**: users and libraries are saved to a JSON file with **Gson**, behind a generic `IStorage` interface.
+- **PDF export**: export a user's library to PDF with **OpenPDF**.
+- **Error handling and logging**: custom exceptions (`InsufficientFundsException`, `GameAlreadyOwnedException`) and a `java.util.logging` logger configured in `config.properties`.
 
-- **Langage** : Java 17+
-- **Interface Graphique** : Java Swing (Custom Components)
-- **Gestion de projet** : Maven
-- **Données** : JSON (GSON / Jackson)
-- **Bibliothèques tierces** : iText (pour l'export PDF)
+## Tech stack
 
-## 🚀 Lancement
+Java 17 · Swing · Maven · Gson · OpenPDF
 
-1. **Prérequis** : Avoir un JDK 17+ installé.
-2. **Compilation** :
-   ```bash
-   mvn clean install
-   ```
-3. **Exécution** :
-   Lancer la classe principale `app.Main`.
+## Project structure
 
----
-*Ce projet démontre une maîtrise avancée de Java Desktop et de la création d'interfaces graphiques ergonomiques.*
+```
+src/main/java/
+├── app/       # entry points: GuiMain (desktop UI), Main (console version)
+├── gui/       # Swing UI (SteamLikeGui)
+├── model/     # Game, User, Library, Catalog, GamePurchase...
+├── service/   # PlatformManager: business logic
+└── util/      # JSON storage, PDF export, logger, password hashing, exceptions
+```
+
+## Run it
+
+Requirements: JDK 17+ and Maven.
+
+```bash
+mvn clean package
+java -cp target/javaf-1.0-SNAPSHOT.jar app.GuiMain   # desktop UI
+java -jar target/javaf-1.0-SNAPSHOT.jar              # console version
+```
+
+The app resets `users.json` on each start so the demo always begins from a clean state.
+
+> The UI text is in French.
